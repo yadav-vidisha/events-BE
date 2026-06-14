@@ -1,7 +1,7 @@
 let { MongoClient, ObjectId } = require("mongodb");
-let url = process.env.MONGO_URL;
 
 let add = async (obj, res) => {
+    let url = process.env.MONGO_URL;
     let client = new MongoClient(url);
     await client.connect();
     let db = client.db("Mern");
@@ -13,6 +13,7 @@ let add = async (obj, res) => {
 }
 
 let get = async (res) => {
+    let url = process.env.MONGO_URL;
     let client = new MongoClient(url);
     await client.connect();
     let db = client.db("Mern");
@@ -24,6 +25,7 @@ let get = async (res) => {
 }
 
 let updateBooking = async (id, obj, res) => {
+    let url = process.env.MONGO_URL;
     let client = new MongoClient(url);
     await client.connect();
     let db = client.db("Mern");
@@ -35,6 +37,7 @@ let updateBooking = async (id, obj, res) => {
 }
 
 let deleteBooking = async (id, res) => {
+    let url = process.env.MONGO_URL;
     let client = new MongoClient(url);
     await client.connect();
     let db = client.db("Mern");
