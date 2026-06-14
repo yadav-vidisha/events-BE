@@ -4,7 +4,7 @@ let add = async (obj, res) => {
     let url = process.env.MONGO_URL;
     let client = new MongoClient(url);
     await client.connect();
-    let db = client.db("Mern");
+    let db = client.db("mern");
     let collection = db.collection("events");
     collection.insertOne(obj)
     .then((result) => { res.send(result) })
@@ -16,7 +16,7 @@ let get = async (res) => {
     let url = process.env.MONGO_URL;
     let client = new MongoClient(url);
     await client.connect();
-    let db = client.db("Mern");
+    let db = client.db("mern");
     let collection = db.collection("events");
     collection.find().toArray()
     .then((result) => res.send(result))
@@ -28,7 +28,7 @@ let updateBooking = async (id, obj, res) => {
     let url = process.env.MONGO_URL;
     let client = new MongoClient(url);
     await client.connect();
-    let db = client.db("Mern");
+    let db = client.db("mern");
     let collection = db.collection("events");
     collection.updateOne({ _id: new ObjectId(id) }, { $set: obj })
     .then((result) => res.send(result))
@@ -40,7 +40,7 @@ let deleteBooking = async (id, res) => {
     let url = process.env.MONGO_URL;
     let client = new MongoClient(url);
     await client.connect();
-    let db = client.db("Mern");
+    let db = client.db("mern");
     let collection = db.collection("events");
     collection.deleteOne({ _id: new ObjectId(id) })
     .then((result) => res.send(result))
